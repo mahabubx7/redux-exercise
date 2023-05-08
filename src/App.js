@@ -1,7 +1,12 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { decrement, increment, reset } from './features/counterSlice';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const count = useSelector((state) => state.counter.count);
+  const dispatch = useDispatch();
+
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +26,11 @@ function App() {
         >
           Learn React
         </a>
+        <main>
+          <button type="button" onClick={() => dispatch(increment())}>+</button>
+          <button type="button" onClick={() => dispatch(reset())}>{ count }</button>
+          <button type="button" onClick={() => dispatch(decrement())}>-</button>
+        </main>
       </header>
     </div>
   );
