@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment, reset } from './features/counterSlice';
+import Albums from './Album';
 import logo from './logo.svg';
 import './App.css';
 
@@ -27,9 +28,13 @@ function App() {
           Learn React
         </a>
         <main>
-          <button type="button" onClick={() => dispatch(increment())}>+</button>
-          <button type="button" onClick={() => dispatch(reset())}>{ count }</button>
-          <button type="button" onClick={() => dispatch(decrement())}>-</button>
+          <div>
+            <button type="button" onClick={() => dispatch(increment())}>+</button>
+            <button type="button" onClick={() => dispatch(reset())}>{ count }</button>
+            <button type="button" onClick={() => dispatch(decrement())}>-</button>
+          </div>
+
+          <Albums />
         </main>
       </header>
     </div>
